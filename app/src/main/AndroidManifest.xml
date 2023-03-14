@@ -12,6 +12,9 @@
         android:theme="@style/Theme.EbsNakliyat"
         tools:targetApi="31">
         <activity
+            android:name=".Siparislerim"
+            android:exported="false" />
+        <activity
             android:name=".YukIlanlari"
             android:exported="false" />
         <activity
