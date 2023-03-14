@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="true">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SurucuEkle">
+
+
+    <EditText
+        android:id="@+id/txt_surucuAdi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="220dp"
+        android:hint="Sürücü İsmi"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/txt_surucuSoyadi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:hint="Sürücü Soyadı"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_surucuAdi">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/txt_surucuTelefonu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:hint="Sürücü Telefonu"
+
+
+        android:inputType="phone"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_surucuSoyadi">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/txt_kapasite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
+        android:hint="Araç Kapasitesi"
+        android:inputType="number"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@+id/txt_surucuTelefonu"
+        tools:layout_editor_absoluteX="10dp">
+
+    </EditText>
+
+
+    <Spinner
+        android:id="@+id/spinner_surucuIlce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+
+        android:layout_marginTop="20dp"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@+id/txt_kapasite"
+        tools:layout_editor_absoluteX="10dp">
+
+    </Spinner>
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="192dp"
+        android:layout_height="178dp"
+
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img" />
+
+    <Button
+        android:id="@+id/btn_surucuEkle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="244dp"
+
+        android:layout_marginTop="68dp"
+        android:onClick="surucuEkle"
+        android:text="Sürücüyü Ekle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_kapasite">
+
+    </Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

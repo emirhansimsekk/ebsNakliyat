@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/anaSayfa">
+
+    <fragment
+        android:id="@+id/kullaniciSecenekleri"
+        android:name="com.emirhansimsek.ebsnakliyat.kullaniciSecenekleri"
+        android:label="fragment_yonetici_secenekleri"
+        tools:layout="@layout/fragment_yonetici_secenekleri" />
+    <fragment
+        android:id="@+id/yoneticiSecenekleri"
+        android:name="com.emirhansimsek.ebsnakliyat.yoneticiSecenekleri"
+        android:label="yoneticiSecenekleri" >
+        <action
+            android:id="@+id/action_yoneticiSecenekleri_to_surucuEkle"
+            app:destination="@id/surucuEkle" />
+    </fragment>
+    <activity
+        android:id="@+id/surucuEkle"
+        android:name="com.emirhansimsek.ebsnakliyat.SurucuEkle"
+        android:label="activity_surucu_ekle"
+        tools:layout="@layout/activity_surucu_ekle" />
+    <activity
+        android:id="@+id/anaSayfa"
+        android:name="com.emirhansimsek.ebsnakliyat.anaSayfa"
+        android:label="activity_ana_sayfa"
+        tools:layout="@layout/activity_ana_sayfa" />
+</navigation>

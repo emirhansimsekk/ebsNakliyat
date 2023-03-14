@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout_anaSayfa"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".anaSayfa">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="238dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_kullaniciGirisi"
+            android:layout_width="190dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:onClick="kullaniciGiris"
+            android:text="Kullanıcı Girişi"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btn_yoneticiGirisi"
+            android:layout_width="200dp"
+            android:layout_height="75dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:onClick="yoneticiGiris"
+            android:text="Yönetici Girişi"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_Cikis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Kapat"
+        android:visibility="invisible"
+        android:textSize="20sp"/>
+
+
+</LinearLayout>

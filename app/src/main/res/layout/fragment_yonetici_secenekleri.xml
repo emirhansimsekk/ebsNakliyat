@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".kullaniciSecenekleri">
+
+    <Button
+        android:id="@+id/btn_surucuEkleEkrani"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginHorizontal="45dp"
+        android:backgroundTint="#31BFEC"
+        android:onClick="surucuEkle"
+        android:text="Sürücü Ekle"
+        android:textSize="20sp">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btn_ilanlariGorEkrani"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginHorizontal="45dp"
+        android:backgroundTint="#31BFEC"
+        android:onClick="ilanlariGor"
+
+        android:text="İlanları Gör"
+        android:textSize="20sp">
+
+
+    </Button>
+
+    <Button
+        android:id="@+id/btn_surucuSilEkrani"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginHorizontal="45dp"
+        android:backgroundTint="#31BFEC"
+        android:onClick="surucuSil"
+        android:text="Sürücü Sil"
+
+        android:textSize="20sp">
+
+    </Button>
+
+
+
+</LinearLayout>
