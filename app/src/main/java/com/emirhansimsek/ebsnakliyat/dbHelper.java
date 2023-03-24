@@ -38,6 +38,7 @@ public class dbHelper extends SQLiteOpenHelper {
     private static String SIPARIS_TARIH = "SIPARIS_TARIH";
     private static String SIPARIS_DURUM = "SIPARIS_DURUM";
     private  static String ODEME_DURUM  = "ODEME_DURUM";
+    private  static String SURUCU_ID1  = "SURUCU_ID";
 
 
 
@@ -68,7 +69,8 @@ public class dbHelper extends SQLiteOpenHelper {
                 + SIPARIS_TARIH + " INT,"
                 + ESYA_SAYISI + " INT,"
                 + SIPARIS_DURUM + " INT,"
-                + ODEME_DURUM + " INT);" ;
+                + ODEME_DURUM + " INT,"
+                + SURUCU_ID1 + " INT);" ;
 
         db.execSQL(createTable);
         //DATABASE_VERSION++;
@@ -78,7 +80,7 @@ public class dbHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("CREATE TABLE IF NOT EXISTS "+TABLE_NAME);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME1);
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_NAME1);
     }
 
     public void surucuEkle(Surucu suruculer){
@@ -116,6 +118,18 @@ public class dbHelper extends SQLiteOpenHelper {
         }
     return cursor;}
 
+    Cursor readData(int id){
+        String query= "SELECT * from SURUCU_DB where SURUCU_ID="+id+";";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = null;
+
+        if(db != null){
+            cursor = db.rawQuery(query,null);
+        }
+        return cursor;}
+
+
     Cursor readData(){
         String query= "SELECT * from SURUCU_DB ";
         SQLiteDatabase db= this.getReadableDatabase();
@@ -141,12 +155,13 @@ public class dbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(SIPARIS_KALKIS_ILCE, "ümraniye");
-        contentValues.put(SIPARIS_VARIS_ILCE, "avcılar");
-        contentValues.put(SIPARIS_TARIH, "10/02/2022");
-        contentValues.put(ESYA_SAYISI, 3);
-        contentValues.put(ODEME_DURUM, 0);
-        contentValues.put(SIPARIS_DURUM, 0);
+        contentValues.put(SIPARIS_KALKIS_ILCE, siparisler.getKalkisIlce());
+        contentValues.put(SIPARIS_VARIS_ILCE, siparisler.getVarisIlce());
+        contentValues.put(SIPARIS_TARIH, siparisler.getTarih());
+        contentValues.put(ESYA_SAYISI, siparisler.getAracKapasite());
+        contentValues.put(ODEME_DURUM, siparisler.getOdemeDurum());
+        contentValues.put(SIPARIS_DURUM, siparisler.getSiparisDurum());
+        contentValues.put(SURUCU_ID1,siparisler.getSurucuID());
 
         long result = db.insert(TABLE_NAME1, null, contentValues);
         if(result == -1){
@@ -175,5 +190,12 @@ public class dbHelper extends SQLiteOpenHelper {
             db.delete(TABLE_NAME,"SURUCU_ID=?",new String[]{id});
         }
         Log.v("",query);
+    }
+
+    void updateSiparis(String id){
+        String query ="UPDATE SIPARIS_DB SET SIPARIS_DURUM=1 WHERE SIPARIS_ID = "+ id + ";";
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL(query);
+
     }
 }

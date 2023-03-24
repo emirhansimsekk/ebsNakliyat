@@ -29,6 +29,7 @@ public class AracBul extends AppCompatActivity implements AdapterView.OnItemSele
     int aracBulEsyaSayisi;
 
     boolean bosAlan;
+    customAdapter customAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +86,6 @@ public class AracBul extends AppCompatActivity implements AdapterView.OnItemSele
 
                 else{
                         try {
-                            //aracBulTarih = Integer.parseInt(str_aracBulTarih);
                             aracBulEsyaSayisi = Integer.parseInt(str_aracBulEsyaSayisi);
                         }
                         catch (NullPointerException e){
@@ -94,11 +94,14 @@ public class AracBul extends AppCompatActivity implements AdapterView.OnItemSele
                         bosAlan=false;
                 }
 
-                if(bosAlan==true){
+                if(bosAlan==false){
 
                     Intent intent = new Intent(context,aracIlanlari.class);
+                    intent.putExtra("kalkisIlce",aracBulKalkisIlce);
+                    intent.putExtra("varisIlce",aracBulVarisIlce);
+                    intent.putExtra("tarih",str_aracBulTarih);
+                    intent.putExtra("esyaSayisi",str_aracBulEsyaSayisi);
 
-                    customAdapter customAdapter = new customAdapter(aracBulKalkisIlce,aracBulVarisIlce,str_aracBulTarih,aracBulEsyaSayisi);
                     startActivity(intent);
                 }
             }

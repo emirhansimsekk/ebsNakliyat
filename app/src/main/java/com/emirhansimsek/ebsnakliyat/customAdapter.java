@@ -2,6 +2,8 @@ package com.emirhansimsek.ebsnakliyat;
 
 
 
+import static java.lang.Integer.parseInt;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,31 +20,32 @@ import java.util.ArrayList;
 public class customAdapter extends RecyclerView.Adapter<customAdapter.myViewHolder> {
     private ArrayList<Surucu> suruculer;
     private Context context;
-    private ArrayList surucu_id, surucu_isim, surucu_soyisim, surucu_ilce,arac_kapasite , surucu_telefon;
+    private ArrayList  surucu_isim, surucu_soyisim, surucu_ilce,arac_kapasite , surucu_telefon;
+    private ArrayList<Integer> surucu_id;
+    private ArrayList<Integer> siparis_id;
     int position;
     dbHelper dBhelper;
     Surucu surucu;
     Siparis siparis;
+    String varis;
 
     String kalkisIlce, varisIlce, tarih;
     int esyaSayisi;
-    customAdapter(Context context, ArrayList suruculer, ArrayList surucu_id){
+    customAdapter(Context context, ArrayList suruculer, ArrayList surucu_id,String kalkisIlce, String varisIlce, String tarih, int esyaSayisi){
 
         this.context = context;
         this.suruculer = suruculer;
         this.surucu_id = surucu_id;
         dBhelper = new dbHelper(context);
+        this.varisIlce=varisIlce;
+        this.kalkisIlce=kalkisIlce;
+        this.tarih= tarih;
+        this.esyaSayisi = esyaSayisi;
         position = 0;
 
     }
-    customAdapter(String kalkisIlce, String varisIlce, String tarih, int esyaSayisi){
 
-        this.kalkisIlce = kalkisIlce;
-        this.varisIlce = varisIlce;
-        this.tarih = tarih;
-        this.esyaSayisi = esyaSayisi;
 
-    }
 
 
     @NonNull
@@ -81,6 +84,7 @@ public class customAdapter extends RecyclerView.Adapter<customAdapter.myViewHold
     public class myViewHolder extends RecyclerView.ViewHolder {
         TextView isim, soyisim, kapasite, telefon;
 
+
         public myViewHolder(@NonNull View itemView) {
             super(itemView);
             isim = itemView.findViewById(R.id.isim1);
@@ -89,13 +93,26 @@ public class customAdapter extends RecyclerView.Adapter<customAdapter.myViewHold
             itemView.findViewById(R.id.teklif_iste).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Siparis siparis = new Siparis(kalkisIlce,varisIlce, tarih, esyaSayisi,
-                            0,0);;
+                    try {
+                        position=parseInt(String.valueOf(getAdapterPosition()));
+                    }
+                    catch (NullPointerException e){
+
+                    }
+
+                    surucu = suruculer.get(position);
+                    siparis = new Siparis(kalkisIlce,varisIlce, tarih, esyaSayisi,
+                            0,0,surucu_id.get(position));;
 
                     dBhelper.siparisEkle(siparis);
-                    Toast.makeText(context, "Siparis Eklendi", Toast.LENGTH_SHORT).show();
+                    String toast=String.valueOf(position);
+                    Toast.makeText(context, siparis.getKalkisIlce()+siparis.getSurucuID()+toast, Toast.LENGTH_SHORT).show();
+                    itemView.findViewById(R.id.teklif_iste).setEnabled(false);
+
                 }
+
             });
+
         }
     }
 }

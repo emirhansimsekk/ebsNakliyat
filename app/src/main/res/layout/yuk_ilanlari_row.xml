@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
@@ -22,29 +23,36 @@
                 android:id="@+id/kalkisIlce"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="44dp"
-                android:layout_marginTop="45dp"
+
 
                 android:text="Kalkış İlçe"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.086"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"></TextView>
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.203"></TextView>
 
             <TextView
                 android:id="@+id/varisIlce"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="88dp"
-                android:layout_marginTop="45dp"
-                android:text="Varış İlçe"
+                android:fontFamily="@font/rowdies_light"
 
+                android:text="Varış İlçe"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/kalkisIlce"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.818"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.203">
 
             </TextView>
 
@@ -52,14 +60,18 @@
                 android:id="@+id/esyaSayisi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="68dp"
                 android:layout_marginTop="40dp"
+                android:fontFamily="@font/rowdies_light"
                 android:text="Eşya Sayısı"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.089"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/kalkisIlce">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.621">
 
             </TextView>
 
@@ -69,25 +81,32 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="108dp"
                 android:layout_marginTop="40dp"
+                android:fontFamily="@font/rowdies_light"
                 android:text="Fiyat"
                 android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.085"
                 app:layout_constraintStart_toEndOf="@+id/esyaSayisi"
-                app:layout_constraintTop_toBottomOf="@+id/varisIlce">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.621">
 
             </TextView>
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="55dp"
-                android:layout_height="29dp"
+                android:layout_width="114dp"
+                android:layout_height="59dp"
 
-                android:layout_marginTop="45dp"
-                android:layout_marginEnd="16dp"
-                android:src="@drawable/baseline_arrow_forward_24"
-                app:layout_constraintEnd_toStartOf="@+id/varisIlce"
-                app:layout_constraintTop_toTopOf="parent">
+                android:src="@drawable/baseline_keyboard_double_arrow_right_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.149">
 
             </ImageView>
 
@@ -95,10 +114,12 @@
                 android:id="@+id/yoneticiKabulEt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="128dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/rowdies_light"
                 android:text="Kabul Et"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fiyat">
 
             </Button>

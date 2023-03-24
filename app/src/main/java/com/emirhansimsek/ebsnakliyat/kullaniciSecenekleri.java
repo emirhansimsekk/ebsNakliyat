@@ -40,6 +40,15 @@ public class kullaniciSecenekleri extends Fragment {
                 startActivity(intent);
             }
         });
+
+        Button siparislerim = (Button) view.findViewById(R.id.btn_siparislerim);
+        siparislerim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),Siparislerim.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 }

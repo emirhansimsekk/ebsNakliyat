@@ -1,5 +1,7 @@
 package com.emirhansimsek.ebsnakliyat;
 
+import static java.lang.Integer.parseInt;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,16 +16,16 @@ import java.util.ArrayList;
 public class customAdapterYukIlanlari extends RecyclerView.Adapter<customAdapterYukIlanlari.myViewHolder2> {
     private ArrayList<Siparis> siparisler;
     private Context context;
-    private ArrayList surucu_id;
-    int position;
+    private ArrayList siparis_id;
+    int pose;
     dbHelper dbHelper;
     Siparis siparis;
-    customAdapterYukIlanlari(Context context, ArrayList siparisler, ArrayList surucu_id){
+    customAdapterYukIlanlari(Context context, ArrayList siparisler, ArrayList siparis_id){
         this.context = context;
         this.siparisler = siparisler;
-        this.surucu_id = surucu_id;
+        this.siparis_id = siparis_id;
         dbHelper = new dbHelper(context);
-        position = 0;
+        pose = 0;
     }
 
     @NonNull
@@ -40,7 +42,7 @@ public class customAdapterYukIlanlari extends RecyclerView.Adapter<customAdapter
         siparis = siparisler.get(position);
         holder.kalkisIlce.setText(String.valueOf(siparis.getKalkisIlce()));
         holder.varisIlce.setText(String.valueOf(siparis.getVarisIlce()));
-        holder.tarih.setText(String.valueOf(siparis.getTarih()));
+        holder.tarih.setText(String.valueOf(siparisler.size()));
         holder.esyaSayisi.setText(String.valueOf(siparis.getAracKapasite()));
         holder.fiyat.setText("2165");
     }
@@ -62,6 +64,14 @@ public class customAdapterYukIlanlari extends RecyclerView.Adapter<customAdapter
             itemView.findViewById(R.id.yoneticiKabulEt).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                        try{
+                            pose=parseInt(String.valueOf(getAdapterPosition()));
+                        }
+                        catch (NullPointerException e){
+
+                        }
+                        dbHelper.updateSiparis(String.valueOf(pose+1));
+                        itemView.findViewById(R.id.yoneticiKabulEt).setEnabled(false);
 
                 }
             });

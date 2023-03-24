@@ -38,7 +38,7 @@ public class YukIlanlari extends AppCompatActivity {
         Cursor cursor = dbHelper.readDataSiparis();
         while (cursor.moveToNext()){
             siparis = new Siparis(cursor.getString(1),cursor.getString(2), cursor.getString(3)
-                    ,cursor.getInt(4),cursor.getInt(5), cursor.getInt(6));
+                    ,cursor.getInt(4),cursor.getInt(5), cursor.getInt(6), cursor.getInt(7));
             siparisler.add(siparis);
             siparis_id.add(cursor.getInt(0));
 
