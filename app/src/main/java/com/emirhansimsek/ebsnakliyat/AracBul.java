@@ -63,6 +63,7 @@ public class AracBul extends AppCompatActivity implements AdapterView.OnItemSele
                 DatePickerDialog datePickerDialog = new DatePickerDialog(AracBul.this,  new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        month=month+1;
                         editText_aracBulTarih.setText(dayOfMonth+"/"+month+"/"+year);
                     }
                 },year,month,dayOfMonth);

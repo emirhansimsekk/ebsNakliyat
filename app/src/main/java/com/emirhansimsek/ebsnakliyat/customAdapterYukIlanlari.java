@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,9 +43,9 @@ public class customAdapterYukIlanlari extends RecyclerView.Adapter<customAdapter
         siparis = siparisler.get(position);
         holder.kalkisIlce.setText(String.valueOf(siparis.getKalkisIlce()));
         holder.varisIlce.setText(String.valueOf(siparis.getVarisIlce()));
-        holder.tarih.setText(String.valueOf(siparisler.size()));
-        holder.esyaSayisi.setText(String.valueOf(siparis.getAracKapasite()));
-        holder.fiyat.setText("2165");
+        holder.tarih.setText(String.valueOf(siparis.getTarih()));
+        holder.esyaSayisi.setText(String.valueOf(siparis.getAracKapasite())+" Adet Eşya");
+        holder.fiyat.setText("2165"+" TL");
     }
 
     @Override
@@ -72,6 +73,7 @@ public class customAdapterYukIlanlari extends RecyclerView.Adapter<customAdapter
                         }
                         dbHelper.updateSiparis(String.valueOf(pose+1));
                         itemView.findViewById(R.id.yoneticiKabulEt).setEnabled(false);
+                        Toast.makeText(context, "Teklifi Kabul ettiniz", Toast.LENGTH_SHORT).show();
 
                 }
             });

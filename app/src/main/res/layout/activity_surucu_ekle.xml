@@ -24,7 +24,10 @@
         android:hint="Sürücü İsmi"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:imeOptions="actionNext"
+        android:inputType="textCapWords"
+        >
 
     </EditText>
 
@@ -37,7 +40,10 @@
         android:hint="Sürücü Soyadı"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_surucuAdi">
+        app:layout_constraintTop_toBottomOf="@+id/txt_surucuAdi"
+        android:imeOptions="actionNext"
+        android:inputType="textCapWords"
+        >
 
     </EditText>
 
@@ -53,7 +59,10 @@
         android:inputType="phone"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_surucuSoyadi">
+        app:layout_constraintTop_toBottomOf="@+id/txt_surucuSoyadi"
+        android:imeOptions="actionNext"
+
+        >
 
     </EditText>
 
@@ -67,7 +76,9 @@
         android:inputType="number"
         android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@+id/txt_surucuTelefonu"
-        tools:layout_editor_absoluteX="10dp">
+        tools:layout_editor_absoluteX="10dp"
+        android:imeOptions="actionNext"
+        >
 
     </EditText>
 
@@ -81,7 +92,8 @@
         android:layout_marginTop="20dp"
         android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@+id/txt_kapasite"
-        tools:layout_editor_absoluteX="10dp">
+        tools:layout_editor_absoluteX="10dp"
+        android:imeOptions="actionDone">
 
     </Spinner>
 

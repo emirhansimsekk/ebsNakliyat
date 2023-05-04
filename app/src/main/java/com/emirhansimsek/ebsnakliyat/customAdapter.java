@@ -106,7 +106,6 @@ public class customAdapter extends RecyclerView.Adapter<customAdapter.myViewHold
 
                     dBhelper.siparisEkle(siparis);
                     String toast=String.valueOf(position);
-                    Toast.makeText(context, siparis.getKalkisIlce()+siparis.getSurucuID()+toast, Toast.LENGTH_SHORT).show();
                     itemView.findViewById(R.id.teklif_iste).setEnabled(false);
 
                 }

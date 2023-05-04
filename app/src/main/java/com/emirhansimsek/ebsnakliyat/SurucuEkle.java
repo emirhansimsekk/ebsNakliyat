@@ -59,8 +59,8 @@ public class SurucuEkle extends AppCompatActivity implements AdapterView.OnItemS
         findViewById(R.id.btn_surucuEkle).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String surucuAdi = editText_surucuAdi.getText().toString();
-                String surucuSoyadi = editText_surucuSoyadi.getText().toString();
+                String surucuAdi = editText_surucuAdi.getText().toString().replaceAll("\\s","");
+                String surucuSoyadi = editText_surucuSoyadi.getText().toString().replaceAll("\\s","");
                 String strSurucuTelefonu = editText_surucuTelefonu.getText().toString();
                 String strAracKapasite = editText_kapasite.getText().toString();
                 String surucuIlce = spinner_surucuIlce.getSelectedItem().toString();
@@ -86,8 +86,13 @@ public class SurucuEkle extends AppCompatActivity implements AdapterView.OnItemS
 
 
                 if (bosAlan == false) {
-                    if ((!Pattern.matches("[a-zA-Z]+", editText_surucuAdi.getText().toString()) ||
-                            !Pattern.matches("[a-zA-Z]+", editText_surucuSoyadi.getText().toString()))
+
+                    /*surucuAdi = surucuAdi.replaceAll("//s","");
+                    surucuSoyadi = surucuSoyadi.replaceAll("//s","");*/
+
+
+                    if ((!Pattern.matches("[a-zA-Z]+", surucuAdi) ||
+                            !Pattern.matches("[a-zA-Z]+", surucuSoyadi))
                     ) {
                         Toast msg_toast = Toast.makeText(context, "Yanlış Bilgi Girdiniz, Lütfen Tekrar Deneyiniz", Toast.LENGTH_LONG);
                         msg_toast.show();
@@ -108,6 +113,12 @@ public class SurucuEkle extends AppCompatActivity implements AdapterView.OnItemS
 
                         Toast msg_toast = Toast.makeText(context, "Sürücü Başarıyla Eklendi", Toast.LENGTH_LONG);
                         msg_toast.show();
+                        editText_surucuAdi.setText("");
+                        editText_surucuSoyadi.setText("");
+                        editText_kapasite.setText("");
+                        editText_surucuTelefonu.setText("");
+                        spinner_surucuIlce.setSelection(0);
+
                     }
                 }
 

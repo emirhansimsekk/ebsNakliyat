@@ -97,10 +97,6 @@ public class dbHelper extends SQLiteOpenHelper {
             Toast msg = Toast.makeText(context,"Sürücü Eklenemedi",Toast.LENGTH_LONG);
             msg.show();
         }
-        else {
-            Toast msg = Toast.makeText(context,"Sürücü Eklendi",Toast.LENGTH_LONG);
-            msg.show();
-        }
 
 
         db.close();

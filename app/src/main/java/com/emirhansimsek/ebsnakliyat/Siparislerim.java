@@ -36,7 +36,7 @@ public class Siparislerim extends AppCompatActivity {
         recyclerView.setAdapter(customAdap);
         recyclerView.setLayoutManager(new LinearLayoutManager(Siparislerim.this));
         storeData();
-        Log.v(" ", String.valueOf(siparisler.get(1).getSiparisDurum()));
+        //Log.v(" ", String.valueOf(siparisler.get(1).getSiparisDurum()));
     }
 
 
